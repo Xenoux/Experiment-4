@@ -1,0 +1,117 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+
+using namespace std;
+
+void menu()
+{
+	cout << "MENU:" << endl;
+	cout << setw(11) << "1. Add" << endl;
+	cout << setw(16) << "2. Subtract" << endl;
+	cout << setw(16) << "3. Multiply" << endl;
+	cout << setw(14) << "4. Divide" << endl;
+	cout << setw(15) << "5. Modulus" << endl;
+}
+
+int add(int firstNumber, int secondNumber)
+{
+	int output;
+	output = firstNumber + secondNumber;
+	return output;
+}
+
+int subtract(int firstNumber, int secondNumber)
+{
+	int output;
+	output = firstNumber - secondNumber;
+	return output;
+}
+
+int multiply(int firstNumber, int secondNumber)
+{
+	int output;
+	output = firstNumber * secondNumber;
+	return output;;
+}
+
+int divide(int firstNumber, int secondNumber)
+{
+	int output;
+	output = firstNumber / secondNumber;
+	return output;
+}
+
+int modulus(int firstNumber, int secondNumber)
+{
+	int output;
+	output = firstNumber % secondNumber;
+	return output;
+}
+
+int main()
+{
+	int choice, firstNumber, secondNumber;
+	char computeChoice;
+
+	menu();
+
+	cout << endl;
+
+	do
+	{
+		cout << "Please select your choice of operation which you would like to conduct from the menu (1-5): ";
+		cin >> choice;
+		cout << endl;
+		cout << "Please input your first number: ";
+		cin >> firstNumber;
+		cout << "Please input your second number: ";
+		cin >> secondNumber;
+		cout << endl;
+
+		switch (choice)
+		{
+		case 1:
+			cout << "Computed value: " << add(firstNumber, secondNumber);
+			break;
+		case 2:
+			cout << "Computed value: " << subtract(firstNumber, secondNumber);
+			break;
+		case 3:
+			cout << "Computed value: " << multiply(firstNumber, secondNumber);
+			break;
+		case 4:
+			cout << "Computed value: " << divide(firstNumber, secondNumber);
+			break;
+		case 5:
+			cout << "Computed value: " << modulus(firstNumber, secondNumber);
+			break;
+		default:
+			cout << "Invalid choice! Please select an option only from the given menu (1-5).";
+		}
+
+		cout << endl << endl << "Do you wish to compute more? (Y/N): ";
+		cin >> computeChoice;
+
+		switch (computeChoice)
+		{
+		case 'n':
+			return 0;
+			break;
+		case 'N':
+			return 0;
+			break;
+		case 'y':
+			cout << endl << endl;
+			break;
+		case 'Y':
+			cout << endl << endl;
+			break;
+		default:
+			cout << endl << "Invalid choice! Please select an option only between the two choices (Y/N).";
+		}
+	} while (computeChoice == 'y' || computeChoice == 'Y');
+
+	_getch();
+	return 0;
+}
