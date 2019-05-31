@@ -1,0 +1,57 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void sort(int arrayData[], int arraySize)
+{
+	int index1, index2, sort;
+
+	for (index1 = 0; index1 < arraySize; index1 ++)
+	{
+		for (index2 = index1 + 1; index2 < arraySize; index2 ++)
+		{
+			if (arrayData[index1] > arrayData[index2])
+			{
+				sort = arrayData[index1];
+				arrayData[index1] = arrayData[index2];
+				arrayData[index2] = sort;
+			}
+		}
+	}
+	cout << endl << "After using selection sort..." << endl << endl;
+	cout << "Sorted data: ";
+
+	for (index1 = 0; index1 < arraySize; index1 ++)
+	{
+		cout << arrayData[index1] << " ";
+	}
+}
+
+int main()
+{
+	int index1, index2, arraySize, arrayData[50];
+
+	cout << "|Selection Sort|" << endl << endl;
+	cout << "Please input array size: ";
+	cin >> arraySize;
+	cout << "Please input the " << arraySize << " array elements: ";
+	for (index1 = 0; index1 < arraySize; index1 ++)
+	{
+		cin >> arrayData[index1];
+	}
+
+	cout << endl << "Your data inputs: ";
+
+	for (index1 = 0; index1 < arraySize; index1 ++)
+	{
+		cout << arrayData[index1] << " ";
+	}
+	
+	cout << endl;
+
+	sort(arrayData, arraySize);
+
+	_getch();
+	return 0;
+}
